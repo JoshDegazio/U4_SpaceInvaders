@@ -215,7 +215,7 @@ namespace U4_SpaceInvaders
 
         private void Gamestates()
         {
-            
+
             if (gameState == GameState.MainMenu)
             {
                 canvas_mainmenu.Visibility = Visibility.Visible;
@@ -226,12 +226,12 @@ namespace U4_SpaceInvaders
                     //setupGame();
                     // if (gameState == GameState.MainMenu)
                     {
-                    //    gameState = GameState.GameOn;
-                    //    Globals.musicPlaying = false;
+                        //    gameState = GameState.GameOn;
+                        //    Globals.musicPlaying = false;
                     }
                     //else if (gameState == GameState.GameOn)
                     {
-                      //  gameState = GameState.MainMenu;
+                        //  gameState = GameState.MainMenu;
                         //Globals.musicPlaying = false;
                     }
                 }
@@ -247,7 +247,7 @@ namespace U4_SpaceInvaders
                         Globals.isSpacePressed = true;
 
                         List<SP1Aliens> SP1Aliens = new List<SP1Aliens>();
-                        
+
 
                     }
                 }
@@ -300,9 +300,10 @@ namespace U4_SpaceInvaders
                         Globals.musicPlaying = false;
                     }
                 }
+
+                
+                SP1Aliens.gaykidsinParis.
             }
-
-
 
             else if (gameState == GameState.GameOver)
             {
