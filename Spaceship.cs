@@ -21,6 +21,7 @@ namespace U4_SpaceInvaders
         MainWindow window;
         Rectangle playerRectangle;
         double dbl_playerpos;
+        string PlayerPosX;
 
         public Spaceship(Canvas c, MainWindow w)
         {
@@ -40,13 +41,21 @@ namespace U4_SpaceInvaders
 
         public void Tick()
         {
-
-
-
-
             if (Keyboard.IsKeyDown(Key.Left))
             {
-                double.TryParse(playerPos.X, out dbl_playerpos);
+                //PlayerPosX = playerPos.X.ToString();
+                //double.TryParse(PlayerPosX, out dbl_playerpos);
+                playerPos.X = playerPos.X - 1;
+                point.X = playerPos.X;
+                Canvas.SetLeft(playerRectangle, point.X);
+            }
+            else if (Keyboard.IsKeyDown(Key.Right))
+            {
+                //PlayerPosX = playerPos.X.ToString();
+                //double.TryParse(PlayerPosX, out dbl_playerpos);
+                playerPos.X = playerPos.X + 1;
+                point.X = playerPos.X;
+                Canvas.SetLeft(playerRectangle, point.X);
             }
         }
     }
