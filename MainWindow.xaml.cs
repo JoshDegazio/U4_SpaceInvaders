@@ -49,6 +49,7 @@ namespace U4_SpaceInvaders
         public static bool musicPlaying = false;
         public static bool beginfade = false;
         public static bool isSpacePressed = false;
+        public static bool playerCreated = false;
 
         public static int currentRound = 1;
 
@@ -68,6 +69,8 @@ namespace U4_SpaceInvaders
         GameState gameState;
 
         System.Windows.Threading.DispatcherTimer gameTimer = new System.Windows.Threading.DispatcherTimer();
+        Spaceship player;
+
 
 
 
@@ -85,7 +88,13 @@ namespace U4_SpaceInvaders
             gameState = GameState.MainMenu;
             DrawMainMenu();
 
+        }
 
+        public void CreatePlayer()
+        {
+            player = new Spaceship(canvas_battleground, this);
+            Rectangle spaceship = new Rectangle();
+            Globals.playerCreated = true;
 
         }
 
@@ -213,7 +222,7 @@ namespace U4_SpaceInvaders
 
         public void Gamestates()
         {
-            
+
             if (gameState == GameState.MainMenu)
             {
                 canvas_mainmenu.Visibility = Visibility.Visible;
@@ -224,12 +233,12 @@ namespace U4_SpaceInvaders
                     //setupGame();
                     // if (gameState == GameState.MainMenu)
                     {
-                    //    gameState = GameState.GameOn;
-                    //    Globals.musicPlaying = false;
+                        //    gameState = GameState.GameOn;
+                        //    Globals.musicPlaying = false;
                     }
                     //else if (gameState == GameState.GameOn)
                     {
-                      //  gameState = GameState.MainMenu;
+                        //  gameState = GameState.MainMenu;
                         //Globals.musicPlaying = false;
                     }
                 }
@@ -245,7 +254,7 @@ namespace U4_SpaceInvaders
                         Globals.isSpacePressed = true;
 
                         List<SP1Aliens> SP1Aliens = new List<SP1Aliens>();
-                        
+
 
                     }
                 }
@@ -260,10 +269,12 @@ namespace U4_SpaceInvaders
             else if (gameState == GameState.GameOn)
             {
                 this.Title = "Round: " + Globals.currentRound.ToString();
-                Spaceship player = new Spaceship(canvas_battleground, this);
 
-                Rectangle spaceship = new Rectangle();
-                
+                if (Globals.playerCreated == false)
+                {
+                    CreatePlayer();
+                }
+                player.Tick();
 
                 if (Keyboard.IsKeyDown(Key.Space))
                 {
