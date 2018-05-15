@@ -8,9 +8,5 @@ namespace U4_SpaceInvaders
 {
     class SP1Aliens
     {
-        public void gaykidsinParis()
-        {
-            int x = 5;
-        }
     }
 }

@@ -52,8 +52,6 @@ namespace U4_SpaceInvaders
 
         public static int currentRound = 1;
 
-
-
         public static SoundPlayer musicPlayer = new SoundPlayer();
         public static MediaPlayer effectPlayer = new MediaPlayer();
 
@@ -213,9 +211,9 @@ namespace U4_SpaceInvaders
             }
         }
 
-        private void Gamestates()
+        public void Gamestates()
         {
-
+            
             if (gameState == GameState.MainMenu)
             {
                 canvas_mainmenu.Visibility = Visibility.Visible;
@@ -226,12 +224,12 @@ namespace U4_SpaceInvaders
                     //setupGame();
                     // if (gameState == GameState.MainMenu)
                     {
-                        //    gameState = GameState.GameOn;
-                        //    Globals.musicPlaying = false;
+                    //    gameState = GameState.GameOn;
+                    //    Globals.musicPlaying = false;
                     }
                     //else if (gameState == GameState.GameOn)
                     {
-                        //  gameState = GameState.MainMenu;
+                      //  gameState = GameState.MainMenu;
                         //Globals.musicPlaying = false;
                     }
                 }
@@ -247,7 +245,7 @@ namespace U4_SpaceInvaders
                         Globals.isSpacePressed = true;
 
                         List<SP1Aliens> SP1Aliens = new List<SP1Aliens>();
-
+                        
 
                     }
                 }
@@ -262,6 +260,10 @@ namespace U4_SpaceInvaders
             else if (gameState == GameState.GameOn)
             {
                 this.Title = "Round: " + Globals.currentRound.ToString();
+                Spaceship player = new Spaceship(canvas_battleground, this);
+
+                Rectangle spaceship = new Rectangle();
+                
 
                 if (Keyboard.IsKeyDown(Key.Space))
                 {
@@ -301,9 +303,13 @@ namespace U4_SpaceInvaders
                     }
                 }
 
-                
-                SP1Aliens.gaykidsinParis.
+                if (Mouse.LeftButton == MouseButtonState.Pressed)
+                {
+                    Clipboard.SetText(Mouse.GetPosition(this).ToString());
+                }
             }
+
+
 
             else if (gameState == GameState.GameOver)
             {
